@@ -81,7 +81,7 @@ class _UpdateProductScreenState extends State<UpdateProductScreen> {
                           id: productModel.id,
                           title: productName ?? productModel.title,
                           price: price ?? productModel.price,
-                          description: desc ?? productModel.description,
+                          desc: desc ?? productModel.description,
                           image: image ?? productModel.image,
                           category: productModel.category);
                       if (context.mounted) {

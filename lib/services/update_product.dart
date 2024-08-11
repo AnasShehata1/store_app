@@ -4,22 +4,23 @@ import 'package:store_app/helper/api.dart';
 import 'package:store_app/models/product_model.dart';
 
 class UpdateProduct {
-  Future<dynamic> updateProduct(
+  Future<ProductModel> updateProduct(
       {required String title,
-      required int id,
       required String price,
-      required String description,
+      required String desc,
       required String image,
+      required int id,
       required String category}) async {
-    log(id.toString());
-    Map<String, dynamic> data =
-        await Api().put(url: 'https://fakestoreapi.com/products/$id', body: {
+    log('product id  = $id');
+    Map<String, dynamic> data = await Api()
+        .put(url: 'https://fakestoreapi.com/products/$id', token: null, body: {
       'title': title,
       'price': price,
-      'description': description,
+      'description': desc,
       'image': image,
       'category': category,
     });
+
     return ProductModel.fromJson(data);
   }
 }
